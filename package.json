@@ -1,0 +1,38 @@
+{
+  "name": "wizard-icons",
+  "version": "1.0.0",
+  "description": "Wizard svg icons",
+  "scripts": {
+    "svgr": "svgr --config-file ./svgr.config.js --ext tsx -d src/Icons/ assets/",
+    "genarate": "node create-index.js src/Icons",
+    "build": "yarn svgr && yarn genarate",
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development"
+  },
+  "keywords": [
+    "icon",
+    "svg"
+  ],
+  "author": "wangkailang",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@svgr/cli": "^4.3.1",
+    "@svgr/webpack": "^4.3.1",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.4",
+    "@types/webpack-env": "^1.13.9",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.6",
+    "react-hot-loader": "^4.11.1",
+    "typescript": "^3.5.3",
+    "webpack": "^4.34.0",
+    "webpack-cli": "^3.3.4",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
