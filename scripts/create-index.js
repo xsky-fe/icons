@@ -14,13 +14,9 @@ const [source] = process.argv.slice(2);
     .map (file => path.basename(file, '.tsx'));
   const exports = names.map(name => `import ${name} from './${name}';`);
   const content = exports.join('\n');
-  const exportDefault = `export default {${names.join(',')}}`;
-  const enumStr = names.map(n => `${n} = '${n}'\n`);
-  const interface = `
-export enum ICONS {
-  ${enumStr}
-}
-`
-  await writeFile(path.join (source, 'index.tsx'), interface+content+'\n'+exportDefault);
+  const exportDefault = `export default {\n${names.map(n => `  ${n}`).join(',\n')}\n}`;
+  const enumStr = names.map(n => `  ${n} = '${n}',`).join('\n');
+  const exportInterface = `export enum ICONS {\n${enumStr} \n}`;
+  await writeFile(path.join (source, 'index.tsx'), exportInterface + '\n' + content + '\n' + exportDefault);
 })();
 

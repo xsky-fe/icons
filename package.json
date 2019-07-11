@@ -2,11 +2,24 @@
   "name": "wizard-icons",
   "version": "1.0.0",
   "description": "Wizard svg icons",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "svgr": "svgr --config-file ./svgr.config.js --ext tsx -d src/Icons/ assets/",
-    "genarate": "node create-index.js src/Icons",
-    "build": "yarn svgr && yarn genarate",
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development"
+    "svgr": "svgr --config-file ./svgr.config.js --ext tsx -d src/ assets/",
+    "genarate": "node ./scripts/create-index.js src",
+    "build-react": "yarn svgr && yarn genarate",
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "ts2js": "rm -rf lib && tsc",
+    "clean": "rm -rf dist/bundle.js",
+    "build": "yarn clean && webpack",
+    "deploy": "yarn build && gh-pages -d dist && yarn clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xsky-fe/icons"
+  },
+  "bugs": {
+    "url": "https://github.com/xsky-fe/icons/issues"
   },
   "keywords": [
     "icon",
@@ -19,12 +32,12 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "@svgr/cli": "^4.3.1",
-    "@svgr/webpack": "^4.3.1",
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.4",
     "@types/webpack-env": "^1.13.9",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
+    "gh-pages": "^2.0.1",
     "react-hot-loader": "^4.11.1",
     "typescript": "^3.5.3",
     "webpack": "^4.34.0",
@@ -32,7 +45,10 @@
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
+    "@types/node": "^12.6.2",
+    "@types/styled-components": "^4.1.17",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.3.2"
   }
 }

@@ -1,14 +1,12 @@
 multipass: true
+floatPrecision: 4
 
 plugins:
-  - addAttributesToSVGElement: false
-  - addClassesToSVGElement: false
   - cleanupAttrs: true
   - cleanupEnableBackground: true
   - cleanupIDs: true
   - cleanupListOfValues: true
-  - cleanupNumericValues:
-      floatPrecision: 2
+  - cleanupNumericValues: true
   - collapseGroups: true
   - convertColors: true
   - convertPathData: true
@@ -32,14 +30,14 @@ plugins:
   - removeHiddenElems: true
   - removeMetadata: true
   - removeNonInheritableGroupAttrs: true
-  - removeRasterImages
+  - removeRasterImages: true
   - removeStyleElement: true
   - removeTitle: true
   - removeUnknownsAndDefaults: true
   - removeUnusedNS: true
   - removeUselessDefs: true
   - removeUselessStrokeAndFill: true
-  - removeViewBox: true
+  - removeViewBox: false
   - removeXMLNS: false
   - removeXMLProcInst: true
   - sortAttrs: true

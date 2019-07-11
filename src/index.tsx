@@ -1,13 +1,13 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-
-import App from './App';
-
-const title = 'Wizard Icons';
-
-ReactDOM.render(
-  <App title={title} />,
-  document.getElementById('app')
-);
-
-module.hot && module.hot.accept();
+export enum ICONS {
+  Cactus = 'Cactus',
+  Sunset = 'Sunset',
+  Watermelon = 'Watermelon', 
+}
+import Cactus from './Cactus';
+import Sunset from './Sunset';
+import Watermelon from './Watermelon';
+export default {
+  Cactus,
+  Sunset,
+  Watermelon
+}
