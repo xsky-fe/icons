@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "outDir": "./lib/",
-    "module": "esnext",
+    "module": "commonjs",
     "declaration": true,
-    "target": "es6",
+    "target": "es5",
     "jsx": "react",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
