@@ -4,13 +4,20 @@
     "module": "esnext",
     "declaration": true,
     "target": "es6",
-    "jsx": "react",
+    "jsx": "preserve",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "strict": true,
     "types": [
       "node",
       "react"
+    ],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
     ]
   },
   "include": [
@@ -18,5 +25,8 @@
   ],
   "exclude": [
     "node_modules",
+    "lib",
+    "dist",
+    "scripts"
   ]
 }

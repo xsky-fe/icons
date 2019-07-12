@@ -1,6 +1,7 @@
-import * as React from 'react';
-import icons, { ICONS } from '../src';
+import React from 'react';
+import icons from '../src/';
 import styled from 'styled-components';
+import lodash from 'lodash';
 
 interface Props {
   title?: string,
@@ -30,17 +31,39 @@ const LI = styled.li`
   font-size: 21px;
   line-height: 21px;
   padding-bottom: 20px;
+  color: #6b58c4;
+  :hover {
+    color: #fff;
+    background-color: #6b58c4;
+  }
+  svg {
+    fill: currentColor;
+  }
+  p {
+    font-size: 12px;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
 `;
 
 const App = ({ title }: Props) => (
   <div>
     <Title>{title}</Title>
     <UL>
-      {Object.keys(icons).map((key: ICONS) => {
-        const Icon = icons[key];
+      {Object.keys(icons).map((key: string, index) => {
+        const Icon: IconProps = icons[key];
+        const name = lodash.kebabCase(key);
         return (
-          <LI key={key}>
+          <LI key={index}>
             <Icon />
+            <p>
+              <a title="download" href={`https://raw.githubusercontent.com/xsky-fe/icons/master/assets/${name}.svg`} download>{name}</a>
+            </p>
           </LI>
         )
       })}
