@@ -1,6 +1,7 @@
 import React from 'react';
 import icons from '../src/';
 import styled from 'styled-components';
+import Modal from './Modal';
 import lodash from 'lodash';
 
 interface Props {
@@ -35,6 +36,7 @@ const LI = styled.li`
   :hover {
     color: #fff;
     background-color: #6b58c4;
+    cursor: pointer;
   }
   svg {
     fill: currentColor;
@@ -51,24 +53,37 @@ const LI = styled.li`
   }
 `;
 
-const App = ({ title }: Props) => (
-  <div>
-    <Title>{title}</Title>
-    <UL>
-      {Object.keys(icons).map((key: string, index) => {
-        const Icon: IconProps = icons[key];
-        const name = lodash.kebabCase(key);
-        return (
-          <LI key={index}>
-            <Icon />
-            <p>
-              <a title="download" href={`https://raw.githubusercontent.com/xsky-fe/icons/master/assets/${name}.svg`} download>{name}</a>
-            </p>
-          </LI>
-        )
-      })}
-    </UL>
-  </div>
-)
+const App = ({ title }: Props) => {
+  const [open, useOpen] = React.useState(false);
+  const [currIcon, useIcon] = React.useState('');
+  const openModal = (key: string) => {
+    useIcon(key);
+    useOpen(true);
+  };
+  const closeModal = () => {
+    useIcon('');
+    useOpen(false)
+  };
+  return (
+    <div>
+      <Title>{title}</Title>
+      <UL>
+        {Object.keys(icons).map((key: string, index) => {
+          const Icon: IconProps = icons[key];
+          const name = lodash.kebabCase(key);
+          return (
+            <LI key={index} onClick={() => openModal(key)}>
+              <Icon />
+              <p>
+                {name}
+              </p>
+            </LI>
+          )
+        })}
+      </UL>
+      <Modal icon={currIcon} open={open} closeModal={closeModal}/>
+    </div>
+  )
+}
 
 export default App;
