@@ -64,6 +64,7 @@ const App = ({ title }: Props) => {
     useIcon('');
     useOpen(false)
   };
+  console.log(icons)
   return (
     <div>
       <Title>{title}</Title>
