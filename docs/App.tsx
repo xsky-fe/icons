@@ -15,6 +15,7 @@ import deleteIcons from '../src/delete/';
 import styled from 'styled-components';
 import Modal from './Modal';
 import lodash from 'lodash';
+import Anchor from './Anchor';
 
 interface Props {
   title?: string,
@@ -61,10 +62,12 @@ const Box = styled.div`
   display: flex;
   flex-direction: row;
 `
-const H4 = styled.h4`
+const H4 = styled.h5`
   min-width: 100px;
   text-align: center;
-  align-self: center;
+  padding-top: 75px;
+  position: relative;
+  top: -30px;
 `
 
 const UL = styled.ul`
@@ -73,6 +76,7 @@ const UL = styled.ul`
   flex-wrap: wrap;
   border-left: 2px solid #eee;
   margin-bottom: 40px;
+  margin-right: 145px;
 
 `;
 const LI = styled.li`
@@ -84,7 +88,7 @@ const LI = styled.li`
   border-radius: 3px;
   padding: 29px 0 10px 0;
   margin-right: 10px;
-  margin-top: 10px;
+  margin-bottom: 10px;
   transition: all .6s ease;
   font-size: 21px;
   line-height: 21px;
@@ -121,6 +125,7 @@ const App = ({ title }: Props) => {
     useIcon('');
     useOpen(false)
   };
+
   return (
     <>
       <Title>{title}</Title>
@@ -128,7 +133,7 @@ const App = ({ title }: Props) => {
         iconsList.map((fileName: object, index) => {
           return (
             <Box key={iconsTypeName[index]}>
-              <H4>{iconsTypeName[index]}</H4>
+              <H4 id={iconsTypeName[index]}>{iconsTypeName[index]}</H4>
               <UL>
                 {Object.keys(fileName).map((key: string, index) => {
                   const Icon: IconProps = fileName[key];
@@ -147,7 +152,7 @@ const App = ({ title }: Props) => {
           )
         })
       }
-
+      <Anchor  list={iconsTypeName}></Anchor>
       <Modal icon={currIcon} open={open} closeModal={closeModal} />
     </>
   )
