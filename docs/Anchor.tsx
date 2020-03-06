@@ -9,29 +9,27 @@ const UL = styled.div`
   height: 100%;
   border-sizing: border-box;
   text-align: center;
-  position:fixed;
+  position: fixed;
   top: 0;
   right: 0;
   display: flex;
   flex-direction: column;
-  justify-content:center;
-  padding:30px 0;
+  justify-content: center;
+  padding: 30px 0;
 `
 const LI = styled.div`
-  padding:15px 5px;
+  padding: 15px 5px;
   cursor: pointer;
   background: rgba(0,0,0,.01);
   color: #6b58c4;
-  font-size:12px;
+  font-size: 12px;
   transition: all .2s ease;
   :hover {
     color: #fff;
     background-color: #6b58c4;
     cursor: pointer;
   }
-  
 `
-
 interface Props {
     list: Array<string>
 }
@@ -47,12 +45,10 @@ const Anchor: React.SFC<Props> = props => {
         <UL>
             {list.map((key, index) => {
                 return (
-                <LI key={index} onClick={() => scrollToAnchor(`${key}`)}>{key}</LI>
-
+                    <LI key={index} onClick={() => scrollToAnchor(`${key}`)}>{key}</LI>
                 )
             })
             }
-
         </UL>
     );
 }

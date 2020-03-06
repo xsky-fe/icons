@@ -38,6 +38,7 @@ const iconsList = [
   otherIcons,
   deleteIcons,
 ];
+
 const iconsTypeName = [
   '顶导航',
   '测导航',
@@ -152,7 +153,7 @@ const App = ({ title }: Props) => {
           )
         })
       }
-      <Anchor  list={iconsTypeName}></Anchor>
+      <Anchor list={iconsTypeName}></Anchor>
       <Modal icon={currIcon} open={open} closeModal={closeModal} />
     </>
   )
