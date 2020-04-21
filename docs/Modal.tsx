@@ -61,6 +61,7 @@ const Modal: React.SFC<Props> = props => {
   const Icon: IconProps = Icons[icon];
   return (
     <RCModal
+      appElement={document.body}
       isOpen={open}
       contentLabel="SVG Grid"
       style={customStyles}
