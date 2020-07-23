@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "svgr": "svgr --config-file ./svgr.config.js --ext tsx -d src/ assets/",
-    "genarate": "node ./scripts/create-index.js src",
+    "genarate": "node ./scripts/create-index.js",
     "build-react": "rm -rf src && yarn svgr && yarn genarate",
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "ts2js": "rm -rf lib && babel src --out-dir lib --extensions '.ts,.tsx'",

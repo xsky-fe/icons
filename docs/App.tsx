@@ -1,8 +1,21 @@
 import React from 'react';
-import icons from '../src/';
+import topNavigationIcons from '../src/topNavigation/';
+import surfaceNavigationIcons from '../src/surfaceNavigation/';
+import blockStoreIcons from '../src/blockStore/';
+import fileStoreIcons from '../src/fileStore/';
+import objectStoreIcons from '../src/objectStore/';
+import dataProtectionIcons from '../src/dataProtection/';
+import cloudIntegrantionIcons from '../src/cloudIntegrantion/';
+import resourceManagementIcons from '../src/resourceManagement/';
+import monitorManagementIcons from '../src/monitorManagement/';
+import recycleBinIcons from '../src/recycleBin/';
+import operationIcons from '../src/operation/';
+import otherIcons from '../src/other/';
+import deleteIcons from '../src/delete/';
 import styled from 'styled-components';
 import Modal from './Modal';
 import lodash from 'lodash';
+import Anchor from './Anchor';
 
 interface Props {
   title?: string,
@@ -10,13 +23,62 @@ interface Props {
 
 type IconProps = (props: React.SVGProps<SVGSVGElement>) => React.ReactElement;
 
+const iconsList = [
+  topNavigationIcons,
+  surfaceNavigationIcons,
+  blockStoreIcons,
+  fileStoreIcons,
+  objectStoreIcons,
+  dataProtectionIcons,
+  cloudIntegrantionIcons,
+  resourceManagementIcons,
+  monitorManagementIcons,
+  recycleBinIcons,
+  operationIcons,
+  otherIcons,
+  deleteIcons,
+];
+
+const iconsTypeName = [
+  '顶导航',
+  '测导航',
+  '块存储',
+  '文件存储',
+  '对象存储',
+  '数据保护',
+  '云集成',
+  '资源管理',
+  '监控管理',
+  '回收站',
+  '操作',
+  '未分类',
+  '即将移除',
+];
+
 const Title = styled.h2`
   text-align: center;
   padding: 26px 0 10px 0;
 `
+const Box = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+const H4 = styled.h5`
+  min-width: 100px;
+  text-align: center;
+  padding-top: 75px;
+  position: relative;
+  top: -30px;
+`
 
 const UL = styled.ul`
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-left: 2px solid #eee;
+  margin-bottom: 40px;
+  margin-right: 145px;
+
 `;
 const LI = styled.li`
   vertical-align: top;
@@ -27,7 +89,7 @@ const LI = styled.li`
   border-radius: 3px;
   padding: 29px 0 10px 0;
   margin-right: 10px;
-  margin-top: 10px;
+  margin-bottom: 10px;
   transition: all .6s ease;
   font-size: 21px;
   line-height: 21px;
@@ -64,26 +126,36 @@ const App = ({ title }: Props) => {
     useIcon('');
     useOpen(false)
   };
-  console.log(icons)
+
   return (
-    <div>
+    <>
       <Title>{title}</Title>
-      <UL>
-        {Object.keys(icons).map((key: string, index) => {
-          const Icon: IconProps = icons[key];
-          const name = lodash.kebabCase(key);
+      {
+        iconsList.map((fileName: object, index) => {
           return (
-            <LI key={index} onClick={() => openModal(key)}>
-              <Icon />
-              <p>
-                {name}
-              </p>
-            </LI>
+            <Box key={iconsTypeName[index]}>
+              <H4 id={iconsTypeName[index]}>{iconsTypeName[index]}</H4>
+              <UL>
+                {Object.keys(fileName).map((key: string, index) => {
+                  const Icon: IconProps = fileName[key];
+                  const name = lodash.kebabCase(key);
+                  return (
+                    <LI key={index} onClick={() => openModal(key)}>
+                      <Icon />
+                      <p>
+                        {name}
+                      </p>
+                    </LI>
+                  )
+                })}
+              </UL>
+            </Box>
           )
-        })}
-      </UL>
-      <Modal icon={currIcon} open={open} closeModal={closeModal}/>
-    </div>
+        })
+      }
+      <Anchor list={iconsTypeName}></Anchor>
+      <Modal icon={currIcon} open={open} closeModal={closeModal} />
+    </>
   )
 }
 

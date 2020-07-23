@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RCModal from 'react-modal';
-import icons from '../src/';
+import Icons from '../src/';
 import Grid from './Grid';
 import styled from 'styled-components';
 import lodash from 'lodash';
@@ -58,9 +58,10 @@ interface Props {
 const Modal: React.SFC<Props> = props => {
   const { open, closeModal, icon } = props;
   const name = lodash.kebabCase(icon);
-  const Icon: IconProps = icons[icon];
+  const Icon: IconProps = Icons[icon];
   return (
     <RCModal
+      appElement={document.body}
       isOpen={open}
       contentLabel="SVG Grid"
       style={customStyles}
