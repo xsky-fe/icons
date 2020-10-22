@@ -2,7 +2,7 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
 <title>paste</title>
 <path d="M31.999 32h-21.332v-23.111h21.333l-0.001 23.111zM13.102 29.717h16.461v-18.547h-16.461v18.547z"></path>
-<path fill="none" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="4" stroke-width="2.2857" stroke="#000" d="M16.381 17.587h9.897"></path>
-<path fill="none" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="4" stroke-width="2.2857" stroke="#000" d="M16.381 23.302h9.897"></path>
+<path fill="none" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="4" stroke-width="2.2857" d="M16.381 17.587h9.897"></path>
+<path fill="none" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="4" stroke-width="2.2857" d="M16.381 23.302h9.897"></path>
 <path d="M0 24.711h5.803v-2.283h-3.368v-18.546h16.461v2.005h2.437v-4.287h-21.333z"></path>
 </svg>
