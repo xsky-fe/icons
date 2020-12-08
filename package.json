@@ -1,6 +1,6 @@
 {
   "name": "wizard-icons",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "private": false,
   "description": "Wizard svg icons",
   "main": "lib/index.js",
